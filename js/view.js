@@ -99,13 +99,13 @@ TodoView.prototype.render = function() {
 		doImg.className = 'img';
 		
 		todo.isDeleted && (span.className = 'deleted') && (deleteImg.className = 'img');
-		deleteImg.className = todo.isDeleted ? deleteImg.src = 'Undelete.png' : deleteImg.src = 'Delete.png';
+		deleteImg.className = todo.isDeleted ? deleteImg.src = 'assets/img/Undelete.png' : deleteImg.src = 'assets/img/Delete.png';
 		deleteImg.onclick = this.ctrl.deleteHandler.bind(this.ctrl, todo);
 		
 		selectBox.onclick = this.ctrl.selectHandler.bind(this.ctrl, todo);
 		
 		if(todo.isDeleted) continue;
-		doImg.innerHTML = todo.isDone ? doImg.src = 'Undo.png' : doImg.src = 'Do.png';
+		doImg.innerHTML = todo.isDone ? doImg.src = 'assets/img/Undo.png' : doImg.src = 'assets/img/Do.png';
 		doImg.onclick = this.ctrl.doHandler.bind(this.ctrl, todo);
 		// doImg.onclick = (function(that, td){
 			// return function(e) {
