@@ -1,0 +1,22 @@
+.done {
+	text-decoration: line-through;
+}
+.deleted {
+	color: red;
+}
+
+.showDeletedCheckBox {
+}
+
+.doSelectedItems {
+	background-color: green;
+	margin-right: 10px
+}
+
+.deleteSelectedItems {
+	background-color: red;
+}
+
+.img{
+ margin-left: 50px 
+}
