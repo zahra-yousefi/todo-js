@@ -44,16 +44,18 @@ TodoView.prototype.init = function(ctrl) {
 	this.container.appendChild(this.ul);
 	
 	this.showDeletedCheckBox = document.createElement('input');
-	this.container.appendChild(this.showDeletedCheckBox);
 	this.showDeletedCheckBox.type ='checkBox';
 	this.showDeletedCheckBox.onclick = this.ctrl.showDeletedCheckBoxHandler.bind(ctrl);
 	this.showDeletedCheckBox.className = 'showDeletedCheckBox';
+	this.showDeletedCheckBox.checked = true;
 	
-	var showDeletedLable = document.createElement('label')
-	showDeletedLable.type = 'label';
-	showDeletedLable.innerHTML = 'Show deleted items';
-	this.container.appendChild(showDeletedLable);
-	showDeletedLable.className = 'moveprevbtn';
+	var showDeletedLabel = document.createElement('label')
+	showDeletedLabel.type = 'label';
+	showDeletedLabel.innerHTML = 'Show deleted items';
+	showDeletedLabel.className = 'moveprevbtn';
+
+	showDeletedLabel.appendChild(this.showDeletedCheckBox);
+	this.container.appendChild(showDeletedLabel);
 	
 	this.deletedUl = document.createElement('ul');
 	this.container.appendChild(this.deletedUl);
@@ -84,29 +86,36 @@ TodoView.prototype.render = function() {
 		(!todo.isDeleted || this.showDeletedCheckBox.checked) && ul.appendChild(li);
 		
 		var span = document.createElement('span');
+		var buttonSpan = document.createElement('span');
 		var doImg = document.createElement('img')
 		var deleteImg = document.createElement('img');
 		var selectBox = document.createElement('input');
 		selectBox.type = 'checkBox';
+		selectBox.checked = todo.isSelected;
 		
+
 		li.appendChild(selectBox);
 		li.appendChild(span);
-		!todo.isDeleted && li.appendChild(doImg);
-		li.appendChild(deleteImg);
+		!todo.isDeleted && buttonSpan.appendChild(doImg);
+		buttonSpan.appendChild(deleteImg);
+		li.appendChild(buttonSpan);
 		
+		span.className= 'titleSpan';
 		span.innerHTML = (todo.isDeleted ? idxDel : idx) + '. ' + todo.title + ' ';
-		todo.isDone && (span.className = 'done');
-		doImg.className = 'img';
+		doImg.className ='imgButton';
+		todo.isDone && (span.className += ' done');
 		
-		todo.isDeleted && (span.className = 'deleted') && (deleteImg.className = 'img');
+		todo.isDeleted && (span.className += ' deleted') && (deleteImg.className = 'img');
 		deleteImg.className = todo.isDeleted ? deleteImg.src = 'assets/img/Undelete.png' : deleteImg.src = 'assets/img/Delete.png';
 		deleteImg.onclick = this.ctrl.deleteHandler.bind(this.ctrl, todo);
-		
+		deleteImg.className = 'imgButton';
+
 		selectBox.onclick = this.ctrl.selectHandler.bind(this.ctrl, todo);
 		
 		if(todo.isDeleted) continue;
 		doImg.innerHTML = todo.isDone ? doImg.src = 'assets/img/Undo.png' : doImg.src = 'assets/img/Do.png';
 		doImg.onclick = this.ctrl.doHandler.bind(this.ctrl, todo);
+		
 		// doImg.onclick = (function(that, td){
 			// return function(e) {
 				// that.ctrl.doHandler(td);

@@ -5,7 +5,9 @@
 	color: red;
 }
 
-.showDeletedCheckBox {
+.titleSpan {
+	display: inline-block;
+	width: 200px;
 }
 
 .doSelectedItems {
@@ -17,6 +19,7 @@
 	background-color: red;
 }
 
-.img{
- margin-left: 50px 
+.imgButton {
+	cursor: pointer;
+	margin:7px; 
 }
