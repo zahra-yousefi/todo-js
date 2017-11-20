@@ -10,16 +10,24 @@
 	width: 200px;
 }
 
+.actionButton {
+	margin-right: 10px;
+}
 .doSelectedItems {
 	background-color: green;
-	margin-right: 10px
 }
-
 .deleteSelectedItems {
 	background-color: red;
+}
+.selectAll {
+	background-color: rgb(0, 119, 255);
 }
 
 .imgButton {
 	cursor: pointer;
 	margin:7px; 
+}
+
+.undeleteSelectedItems {
+	background-color: yellow;
 }

@@ -6,6 +6,7 @@
 
 function TodoModel(title) {
 	this.id = 1;
+	this.index = 1;
 	this.title = title;
 	this.isDone = false;
 	this.isDeleted = false;
