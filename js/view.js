@@ -8,10 +8,6 @@ function TodoView(containerId) {
 TodoView.prototype.init = function (ctrl) {
 	this.ctrl = ctrl;
 
-	var todoFormView = new TodoFormView();
-	todoFormView.onAddTodo = this.ctrl.addTodoHandler.bind(ctrl);
-	todoFormView.render(this.container);
-
 	var todoActionsView = new TodoActionsView();
 	todoActionsView.onDoSelected = this.ctrl.performSelectedItemsAction.bind(ctrl, 'isDone', true);
 	todoActionsView.onDeleteSelected = this.ctrl.performSelectedItemsAction.bind(ctrl, 'isDeleted',true);
@@ -20,7 +16,10 @@ TodoView.prototype.init = function (ctrl) {
 	todoActionsView.onUnDeleteSelectAll = this.ctrl.performSelectedItemsAction.bind(ctrl, 'isDeleted' ,false);
 	todoActionsView.render(this.container);
 	this.actionsView = todoActionsView;
-
+	
+	var todoFormView = new TodoFormView();
+	todoFormView.onAddTodo = this.ctrl.addTodoHandler.bind(ctrl);
+	todoFormView.render(this.container);
 	
 	
 
@@ -44,6 +43,7 @@ TodoView.prototype.render = function () {
 		todo.isDeleted ? idxDel++ : idx++;
 
 		var li = document.createElement('li');
+		li.className = 'li';
 
 		(!todo.isDeleted || this.actionsView.showDeletedTodos) && ul.appendChild(li);
 		

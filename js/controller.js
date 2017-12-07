@@ -39,5 +39,5 @@ TodoController.prototype.performSelectAllAction = function () {
 
 TodoController.prototype.selectHandler = function (todo) {
 	todo.isSelected = !todo.isSelected;
-
+	
 }

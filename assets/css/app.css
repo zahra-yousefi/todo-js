@@ -1,8 +1,9 @@
 .done {
+    color: rgb(4, 150, 99);
 	text-decoration: line-through;
 }
 .deleted {
-	color: red;
+	color: rgb(241, 70, 70);
 }
 
 .titleSpan {
@@ -11,16 +12,17 @@
 }
 
 .actionButton {
-	margin-right: 10px;
+	margin: 2px;
+	width: 70px;
 }
 .doSelectedItems {
-	background-color: green;
+	background-color: rgb(102, 224, 163);
 }
 .deleteSelectedItems {
-	background-color: red;
+	background-color: rgb(236, 86, 86);
 }
 .selectAll {
-	background-color: rgb(0, 119, 255);
+	background-color: rgb(221, 131, 233);
 }
 
 .imgButton {
@@ -29,5 +31,43 @@
 }
 
 .undeleteSelectedItems {
-	background-color: yellow;
+	background-color: rgb(235, 187, 141);
+}
+
+.container {
+	margin: auto;
+	padding: 20px;
+	width: 500px;
+	vertical-align: center;
+}
+
+.form {
+	padding: 10px;
+	text-align: center;
+	background-color: rgb(59, 116, 240);
+}
+
+.h{
+	text-align: center;
+	font-style: italic;
+}
+
+.input{
+	padding-right: 80px;
+}
+
+.add{
+	text-align: center;
+	padding-right: 15px;
+	background-color: rgb(195, 200, 201);
+	font-style: italic;
+}
+
+.body{
+	background-color: rgb(195, 226, 238)
+}
+
+.li{
+	list-style: none;
+	margin-left: 0;
 }

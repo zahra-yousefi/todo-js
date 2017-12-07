@@ -10,13 +10,19 @@ TodoFormView.prototype.render = function (container) {
     form.onsubmit = add.bind(this);
     form.action = 'javascript:';
 
-    button.value = 'add';
+    button.value = 'Add';
     button.type = 'submit';
+    input.placeholder = 'Add Item';
 
     form.appendChild(input);
     form.appendChild(button);
 
+    form.className = 'form';
+    input.classList= 'input';
+    button.className = 'add';
+
     container.appendChild(form);
+    
 
     window.onload = function () { input.focus(); };
 
